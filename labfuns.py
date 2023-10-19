@@ -6,11 +6,11 @@ import matplotlib.cm as cm
 from matplotlib.patches import Ellipse
 from matplotlib.colors import ColorConverter
 import random as rnd
-from sklearn.datasets.samples_generator import make_blobs
+from sklearn.datasets import make_blobs
 from sklearn import decomposition, tree
 
-# import seaborn as sns
-# sns.set()
+import seaborn as sns
+sns.set()
 
 def plot_cov_ellipse(cov, pos, nstd=2, ax=None, **kwargs):
     """
@@ -106,20 +106,20 @@ def trteSplitEven(X,y,pcSplit,seed=None):
 def fetchDataset(dataset='iris'):
     if dataset == 'iris':
         X = genfromtxt('irisX.txt', delimiter=',')
-        y = genfromtxt('irisY.txt', delimiter=',',dtype=np.int)-1
+        y = genfromtxt('irisY.txt', delimiter=',',dtype=np.int_)-1
         pcadim = 2
     elif dataset == 'wine':
         X = genfromtxt('wineX.txt', delimiter=',')
-        y = genfromtxt('wineY.txt', delimiter=',',dtype=np.int)-1
+        y = genfromtxt('wineY.txt', delimiter=',',dtype=np.int_)-1
         pcadim = 0
     elif dataset == 'olivetti':
         X = genfromtxt('olivettifacesX.txt', delimiter=',')
         X = X/255
-        y = genfromtxt('olivettifacesY.txt', delimiter=',',dtype=np.int)
+        y = genfromtxt('olivettifacesY.txt', delimiter=',',dtype=np.int_)
         pcadim = 20
     elif dataset == 'vowel':
         X = genfromtxt('vowelX.txt', delimiter=',')
-        y = genfromtxt('vowelY.txt', delimiter=',',dtype=np.int)
+        y = genfromtxt('vowelY.txt', delimiter=',',dtype=np.int_)
         pcadim = 0
     else:
         print("Please specify a dataset!")
